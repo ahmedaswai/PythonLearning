@@ -13,8 +13,9 @@ def get_avg_array(line):
     lst=line.split(' ')
     total=0
     for item in lst:
-        total+=int(item)
-    return total/len(lst)
+        total+=float(item)
+    result=round(total/len(lst),0)
+    return int(result)
 
 
 def read_input():
