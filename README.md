@@ -1,4 +1,4 @@
 PythonLearning
 ==============
 
-Solving Problems for Learning Python 
+Solving problems in my journey to  learn python
