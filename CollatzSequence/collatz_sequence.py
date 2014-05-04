@@ -12,7 +12,9 @@ def read_data():
 
 def collatz_sequence():
     result = []
-    collatz_exp = lambda num: collatz_exp(num / 2) if num % 2 == 0 else collatz_exp(3 * num + 1)
+    collatz_exp_even_odd = lambda num, count: collatz_exp_even_odd(num / 2, count) if num % 2 == 0 \
+        else collatz_exp_even_odd(3 * num + 1, count)
+    collatz_exp = lambda num, count=1: count if num == 1 else  collatz_exp_even_odd(num, count + 1)
     #collatz_count=lambda count , collatz_number : count if collatz_exp(collatz_number)==collatz_number else collatz_count(count+1,collatz_count)
     for count in read_data():
         result.append(collatz_exp(count))
