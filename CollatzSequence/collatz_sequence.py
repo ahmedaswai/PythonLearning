@@ -10,18 +10,26 @@ def read_data():
     return data
 
 
+def counter_collatz(number):
+    counter = 0
+    while (number != 1):
+        counter += 1
+        if (number % 2 == 0):
+            number = number / 2
+        else:
+            number = 3 * number + 1
+    return counter
+
+
 def collatz_sequence():
     result = []
-    collatz_exp_even_odd = lambda num, count: collatz_exp_even_odd(num / 2, count) if num % 2 == 0 \
-        else collatz_exp_even_odd(3 * num + 1, count)
-    collatz_exp = lambda num, count=1: count if num == 1 else  collatz_exp_even_odd(num, count + 1)
-    #collatz_count=lambda count , collatz_number : count if collatz_exp(collatz_number)==collatz_number else collatz_count(count+1,collatz_count)
-    for count in read_data():
-        result.append(collatz_exp(count))
+    for numb in read_data():
+        result.append(counter_collatz(numb))
+    return result
 
 
 def main():
-    print (collatz_sequence())
+    print (' '.join(str(x) for x in collatz_sequence()))
 
 
 if __name__ == "__main__":
